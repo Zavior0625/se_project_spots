@@ -29,15 +29,13 @@ The project includes:
 
 ## 🌐 Deployed Project
 
-Check out the live project here:  
-[Spots on GitHub Pages](https://<your-username>.github.io/<your-repo-name>/)
-
+[Deployment Link ](https://zavior0625.github.io/se_project_spots/)
 ---
 
 ## 🎬 Project Pitch Video
 
 Watch the project pitch here:  
-[Spots Pitch Video](https://<your-video-link>)
+[Spots Pitch Video](https://drive.google.com/file/d/1HPkC2HmD1YBjRmfworrzfkT-wospn0Ov/view?usp=sharing)
 
 ---
 
