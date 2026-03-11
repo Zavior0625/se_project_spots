@@ -9,7 +9,8 @@
 }
 
 .cards {
-  padding-top: 20px;
+  padding-top: 20px 0 40px;
+  border-bottom: 1px solid #21212166;
 }
 
 @media screen and (max-width: 627px) {

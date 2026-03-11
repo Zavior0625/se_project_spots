@@ -9,7 +9,6 @@
 .profile__add-btn {
   display: flex;
   margin-left: auto;
-  width: 149px;
   height: 52px;
   background-color: #212121;
   padding: 18px 32px;
@@ -28,6 +27,7 @@
 .profile__avatar {
   margin-right: 20px;
   width: 190px;
+  height: 190px;
   border-radius: 8px;
 }
 
@@ -37,7 +37,21 @@
 }
 
 .profile__edit-btn {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font: 500 16px/1 "Poppins";
+  color: #212121;
+  background: transparent;
+  border: none;
+  padding: 0;
+  opacity: 0.7;
+  cursor: pointer;
   margin-top: auto;
+}
+
+.profile__edit-btn:hover {
+  opacity: 1;
 }
 
 .profile__name {
@@ -55,6 +69,14 @@
 
 .profile__description {
   margin: 0;
+  font: 500 16px/1 "Poppins";
+  color: #212121b2;
+  max-width: 420px;
+  margin-right: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 627px) {
@@ -89,9 +111,8 @@
     text-align: center;
     margin-right: 0;
   }
-}
-.profile__description {
-  margin-bottom: 32px;
-  font-size: 16px;
-  max-width: 288px;
+  .profile__description {
+    margin-bottom: 32px;
+    max-width: 288px;
+  }
 }
