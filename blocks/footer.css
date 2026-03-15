@@ -1,0 +1,16 @@
+p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: 16px;
+  line-height: normal;
+  color: black;
+}
+
+.footer__copyright {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 400;
+  color: #212121b2;
+  text-align: center;
+}

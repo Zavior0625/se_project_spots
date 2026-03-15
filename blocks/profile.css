@@ -14,7 +14,7 @@
   padding: 18px 32px;
   gap: 8px;
   border-radius: 8px;
-  color: #fff;
+  color: #fcf5e5;
   margin-top: auto;
 }
 
@@ -99,6 +99,7 @@
     margin-left: 0;
     max-width: 288px;
     width: 100%;
+    justify-content: center;
   }
 
   .profile__name {
@@ -110,9 +111,15 @@
   .profile__column {
     text-align: center;
     margin-right: 0;
+    margin-bottom: 20px;
   }
+
   .profile__description {
     margin-bottom: 32px;
     max-width: 288px;
+  }
+
+  .profile__add-btn {
+    justify-content: center;
   }
 }
