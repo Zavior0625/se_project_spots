@@ -1,0 +1,80 @@
+.modal {
+  visibility: hidden;
+  background-color: #00000080;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.modal_is-opened {
+  visibility: visible;
+}
+
+.modal__container {
+  max-width: 730px;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 32px 50px;
+  position: relative;
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: 32px;
+  right: 50px;
+  width: 40px;
+  height: 40px;
+  opacity: 40%;
+}
+
+.modal__title {
+  margin: 0 0 32px;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__input {
+  display: block;
+  margin: 8px 0 0;
+  width: 630px;
+  opacity: 1;
+  padding-top: 16px;
+  padding-right: 12px;
+  padding-bottom: 16px;
+  padding-left: 12px;
+  gap: 10px;
+  border-radius: 8px;
+  border-width: 1px;
+}
+
+.modal__label {
+  margin: 0 0 32px;
+}
+
+.modal__input::placeholder {
+  color: #2121214d;
+}
+
+.modal__submit-btn {
+  width: 156px;
+  height: 52px;
+  opacity: 1;
+  padding-top: 18px;
+  padding-right: 32px;
+  padding-bottom: 18px;
+  padding-left: 32px;
+  border-radius: 8px;
+  background-color: black;
+  color: #fff;
+}
