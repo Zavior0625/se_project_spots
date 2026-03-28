@@ -28,16 +28,29 @@
   background-color: #fff;
   padding: 32px 50px;
   position: relative;
-  transition: tranform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .modal__close-btn {
+  border: none;
+  background: transparent;
+  background-image: url(../images/Group\ 27.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50% 50%;
+  text-indent: -9999px;
+  cursor: pointer;
   position: absolute;
   top: 32px;
   right: 50px;
   width: 40px;
   height: 40px;
   opacity: 40%;
+  transition: opacity 0.2s ease;
+}
+
+.modal__close-btn:hover {
+  opacity: 1;
 }
 
 .modal__title {
@@ -53,15 +66,17 @@
 .modal__input {
   display: block;
   margin: 8px 0 0;
-  width: 630px;
+  width: 100%;
+  max-width: 630px;
+  box-sizing: border-box;
   opacity: 1;
   padding-top: 16px;
   padding-right: 12px;
   padding-bottom: 16px;
   padding-left: 12px;
   gap: 10px;
+  border: 1px solid rgba(33, 33, 33, 0.4);
   border-radius: 8px;
-  border-width: 1px;
 }
 
 .modal__label {
@@ -83,4 +98,14 @@
   border-radius: 8px;
   background-color: black;
   color: #fff;
+  border: none;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.modal__submit-btn:hover {
+  background-color: #111;
+  opacity: 0.9;
 }
