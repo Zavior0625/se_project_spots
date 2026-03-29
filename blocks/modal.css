@@ -25,6 +25,7 @@
   max-width: 730px;
   width: 100%;
   border-radius: 8px;
+  box-sizing: border-box;
   background-color: #fff;
   padding: 32px 50px;
   position: relative;
@@ -108,4 +109,34 @@
 .modal__submit-btn:hover {
   background-color: #111;
   opacity: 0.9;
+}
+
+@media (max-width: 320px) {
+  .modal {
+    padding: 12px;
+  }
+
+  .modal__container {
+    padding: 16px;
+  }
+
+  .modal__title {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+
+  .modal__close-btn {
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .modal__input {
+    max-width: 100%;
+  }
+
+  .modal__submit-btn {
+    width: 100%;
+  }
 }
