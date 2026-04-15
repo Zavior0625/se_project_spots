@@ -11,6 +11,10 @@
   margin-bottom: 12px;
 }
 
+.card__image:hover {
+  opacity: 0.8;
+}
+
 .card__like-btn {
   background-image: url(../images/Union.svg);
   width: 23px;
@@ -28,7 +32,6 @@
 }
 
 .card__like-btn_active {
-  background-image: url(../images/Union.svg);
   opacity: 1;
   filter: invert(32%) sepia(98%) saturate(7483%) hue-rotate(357deg);
 }

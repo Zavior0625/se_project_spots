@@ -7,13 +7,12 @@
 }
 
 .profile__add-btn {
-  display: flex;
+  display: inline-flex;
   margin-left: auto;
   height: 52px;
   background-color: #212121;
   padding: 18px 32px;
-  gap: 8px;
-  border-radius: 8px;
+  gap: 10px;
   color: #fcf5e5;
   margin-top: auto;
   border: none;
@@ -22,7 +21,6 @@
   align-items: center;
   cursor: pointer;
   border: none;
-  display: inline-flex;
   align-items: center;
   gap: 8px;
 }
@@ -58,10 +56,6 @@
   cursor: pointer;
   margin-top: auto;
   transition: opacity 0.3s ease;
-}
-
-.profile__edit-btn:hover {
-  opacity: 0.8;
 }
 
 .profile__name {

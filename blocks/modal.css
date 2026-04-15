@@ -26,6 +26,17 @@
   margin: 0 auto;
 }
 
+.modal__caption {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 6px 10px;
+  border-radius: 4px;
+  max-width: 90%;
+}
+
 .modal_is-opened {
   visibility: visible;
   opacity: 1;
@@ -56,7 +67,7 @@
   right: 50px;
   width: 40px;
   height: 40px;
-  opacity: 40%;
+  opacity: 0.4;
   transition: opacity 0.2s ease;
 }
 
@@ -85,7 +96,6 @@
   padding-right: 12px;
   padding-bottom: 16px;
   padding-left: 12px;
-  gap: 10px;
   border: 1px solid rgba(33, 33, 33, 0.4);
   border-radius: 8px;
 }
@@ -151,6 +161,6 @@
   }
 
   .modal__image {
-    max-width: auto;
+    width: 100%;
   }
 }
