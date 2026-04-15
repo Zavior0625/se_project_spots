@@ -1,3 +1,7 @@
+.card {
+  position: relative;
+}
+
 .card__image {
   height: 413px;
   width: 100%;
@@ -21,6 +25,32 @@
 
 .card__like-btn:hover {
   opacity: 1;
+}
+
+.card__like-btn_active {
+  background-image: url(../images/Union.svg);
+  opacity: 1;
+  filter: invert(32%) sepia(98%) saturate(7483%) hue-rotate(357deg);
+}
+
+.card__delete-btn {
+  background-image: url(../images/Group\ 35.svg);
+  width: 18px;
+  height: 18px;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  opacity: 0.4;
+}
+
+.card__delete-btn:hover {
+  opacity: 1;
+  filter: invert(32%) sepia(98%) saturate(7483%) hue-rotate(357deg);
 }
 
 .card__content {
