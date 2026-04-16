@@ -32,8 +32,8 @@
 }
 
 .card__like-btn_active {
+  background-image: url(../images/Union\ \(1\).svg);
   opacity: 1;
-  filter: invert(32%) sepia(98%) saturate(7483%) hue-rotate(357deg);
 }
 
 .card__delete-btn {

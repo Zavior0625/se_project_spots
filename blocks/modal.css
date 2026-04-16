@@ -46,6 +46,7 @@
   max-width: 730px;
   width: 100%;
   border-radius: 8px;
+  overflow: hidden;
   box-sizing: border-box;
   background-color: #fff;
   padding: 32px 50px;
