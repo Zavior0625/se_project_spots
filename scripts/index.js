@@ -51,7 +51,9 @@ const cardsContainer = document.querySelector(".cards__list");
 const imageModal = document.querySelector("#image-preview-modal");
 const modalImage = imageModal.querySelector(".modal__image");
 const modalCaption = imageModal.querySelector(".modal__caption");
-const imageModalCloseBtn = imageModal.querySelector(".modal__close-btn");
+const imageModalCloseBtn = imageModal.querySelector(
+  ".modal__close-btn_type_light",
+);
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");

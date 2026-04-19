@@ -31,17 +31,23 @@
   margin: 0 auto;
 }
 
+.modal__image-container {
+  padding: 0;
+  position: relative;
+}
+
 .modal__caption {
-  margin-top: 8px;
-  width: 119px;
-  height: 24px;
-  font-size: 14px;
-  line-height: 1.2;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
   color: #ffffff;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 6px 10px;
-  border-radius: 4px;
-  width: fit-content;
+  background-color: #212121;
+  padding: 4px 8px;
+  border-radius: 8px;
+  position: absolute;
+  top: calc(100%+10px);
 }
 
 .modal_is-opened {
@@ -58,6 +64,7 @@
   padding: 32px 50px;
   position: relative;
   transition: transform 0.3s ease;
+  background-color: #fff;
 }
 
 .modal__close-btn {
@@ -76,6 +83,12 @@
   height: 40px;
   opacity: 0.4;
   transition: opacity 0.2s ease;
+}
+
+.modal__close-btn_type_light {
+  background-image: url("../images/Group\ 27.svg");
+  top: -40px;
+  right: -40px;
 }
 
 .modal__close-btn:hover {
