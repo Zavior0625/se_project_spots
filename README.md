@@ -34,8 +34,10 @@ The project includes:
 
 ## 🎬 Project Pitch Video
 
-Watch the project pitch here:  
+Check out these videos, where I describe my project
+and some challenges I faced while building it:
 [Spots Pitch Video](https://drive.google.com/file/d/1HPkC2HmD1YBjRmfworrzfkT-wospn0Ov/view?usp=sharing)
+[Spots Pitch Video JavaScript](https://drive.google.com/file/d/1zyamD6acEN1TOtxSzqgA_vFDxOX6GtAA/view?usp=sharing)
 
 ---
 
