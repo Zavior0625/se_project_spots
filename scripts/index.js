@@ -33,23 +33,19 @@ const validationConfig = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
-
 const profileEditBtn = document.querySelector(".profile__edit-btn");
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
-
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileForm = editProfileModal.querySelector(".modal__form");
 const editProfileNameInput = editProfileModal.querySelector("#name-input");
 const editProfileDescriptionInput =
   editProfileModal.querySelector("#description-input");
-
 const newPostBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostForm = newPostModal.querySelector(".modal__form");
 const cardCaptionInput = newPostModal.querySelector("#card-caption-input");
 const cardImageInput = newPostModal.querySelector("#card-image-input");
-
 const imageModal = document.querySelector("#image-preview-modal");
 const modalImage = imageModal.querySelector(".modal__image");
 const modalCaption = imageModal.querySelector(".modal__caption");
@@ -77,6 +73,7 @@ function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
     .cloneNode(true);
+
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
   const likeBtn = cardElement.querySelector(".card__like-btn");
@@ -86,10 +83,14 @@ function getCardElement(data) {
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
 
-  likeBtn.addEventListener("click", () =>
-    likeBtn.classList.toggle("card__like-btn_active"),
-  );
-  deleteBtn.addEventListener("click", () => cardElement.remove());
+  likeBtn.addEventListener("click", () => {
+    likeBtn.classList.toggle("card__like-btn_active");
+  });
+
+  deleteBtn.addEventListener("click", () => {
+    cardElement.remove();
+  });
+
   cardImageEl.addEventListener("click", () => {
     modalImage.src = data.link;
     modalImage.alt = data.name;
@@ -109,11 +110,11 @@ const showInputError = (formElement, inputElement, errorMessage, config) => {
 
 const hideInputError = (formElement, inputElement, config) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-  if (errorElement) {
-    inputElement.classList.remove(config.inputErrorClass);
-    errorElement.classList.remove(config.errorClass);
-    errorElement.textContent = "";
-  }
+  if (!errorElement) return;
+
+  inputElement.classList.remove(config.inputErrorClass);
+  errorElement.classList.remove(config.errorClass);
+  errorElement.textContent = "";
 };
 
 const checkInputValidity = (formElement, inputElement, config) => {
@@ -144,6 +145,7 @@ const toggleButtonState = (inputList, buttonElement, config) => {
 
 const enableValidation = (config) => {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
+
   formList.forEach((formElement) => {
     const inputList = Array.from(
       formElement.querySelectorAll(config.inputSelector),
@@ -167,25 +169,23 @@ enableValidation(validationConfig);
 
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
+
   profileNameEl.textContent = editProfileNameInput.value;
   profileDescriptionEl.textContent = editProfileDescriptionInput.value;
+
   closeModal(editProfileModal);
 }
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
+
   const cardElement = getCardElement({
     name: cardCaptionInput.value,
     link: cardImageInput.value,
   });
+
   cardsList.prepend(cardElement);
   evt.target.reset();
-
-  const submitButton = evt.target.querySelector(
-    validationConfig.submitButtonSelector,
-  );
-  submitButton.classList.add(validationConfig.inactiveButtonClass);
-  submitButton.disabled = true;
 
   closeModal(newPostModal);
 }
@@ -208,23 +208,12 @@ newPostBtn.addEventListener("click", () => {
   openModal(newPostModal);
 });
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  if (!isFormValid()) return;
-
-  form.reset();
-  disableSubmitButton();
-  clearAllErrors(form);
-  closeModal(newPostModal);
-});
-
 document.addEventListener("click", (evt) => {
   const modal = evt.target.closest(".modal");
   if (!modal) return;
 
-  const isOverlayClick = evt.target.classList.contains("modal");
-  const isCloseBtn = evt.target.classList.contains("modal__close");
+  const isOverlayClick = evt.target === modal;
+  const isCloseBtn = evt.target.closest(".modal__close");
 
   if (isOverlayClick || isCloseBtn) {
     closeModal(modal);
