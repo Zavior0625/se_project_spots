@@ -205,21 +205,30 @@ profileEditBtn.addEventListener("click", () => {
 });
 
 newPostBtn.addEventListener("click", () => {
-  [cardCaptionInput, cardImageInput].forEach((input) => {
-    hideInputError(newPostForm, input, validationConfig);
-  });
   openModal(newPostModal);
 });
 
-document.querySelectorAll(".modal").forEach((modal) => {
-  modal.addEventListener("mousedown", (evt) => {
-    if (
-      evt.target.classList.contains("modal_is-opened") ||
-      evt.target.classList.contains("modal__close-btn")
-    ) {
-      closeModal(modal);
-    }
-  });
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  if (!isFormValid()) return;
+
+  form.reset();
+  disableSubmitButton();
+  clearAllErrors(form);
+  closeModal(newPostModal);
+});
+
+document.addEventListener("click", (evt) => {
+  const modal = evt.target.closest(".modal");
+  if (!modal) return;
+
+  const isOverlayClick = evt.target.classList.contains("modal");
+  const isCloseBtn = evt.target.classList.contains("modal__close");
+
+  if (isOverlayClick || isCloseBtn) {
+    closeModal(modal);
+  }
 });
 
 initialCards.forEach((data) => cardsList.append(getCardElement(data)));

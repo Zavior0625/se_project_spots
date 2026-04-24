@@ -47,7 +47,7 @@
   padding: 4px 8px;
   border-radius: 8px;
   position: absolute;
-  top: calc(100%+10px);
+  top: calc(100% + 10px);
 }
 
 .modal_is-opened {
@@ -86,7 +86,6 @@
 }
 
 .modal__close-btn_type_light {
-  background-image: url("../images/Group\ 27.svg");
   top: -40px;
   right: -40px;
 }
@@ -120,6 +119,39 @@
   border-radius: 8px;
 }
 
+.modal__input_type_error {
+  border-bottom-color: #e53935;
+}
+
+.modal__input_type_error:focus {
+  outline: none;
+  border-bottom-color: #d32f2f;
+}
+
+.modal__error-message {
+  color: #e53935;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}
+
+.modal__error {
+  display: block;
+  color: #e53935;
+  font-size: 12px;
+  line-height: 1.2;
+  margin-top: 5px;
+  min-height: 1em;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.modal__error_visible {
+  visibility: visible;
+  opacity: 1;
+}
+
 .modal__label {
   margin: 0 0 32px;
 }
@@ -144,6 +176,14 @@
   transition:
     background-color 0.3s ease,
     opacity 0.3s ease;
+}
+
+.modal__submit-btn_disabled {
+  background-color: #e5e5e5;
+  color: #000000;
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .modal__submit-btn:hover {
