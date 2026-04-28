@@ -33,6 +33,7 @@ const validationConfig = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
+
 const profileEditBtn = document.querySelector(".profile__edit-btn");
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
@@ -213,11 +214,22 @@ document.addEventListener("click", (evt) => {
   if (!modal) return;
 
   const isOverlayClick = evt.target === modal;
-  const isCloseBtn = evt.target.closest(".modal__close");
+  const isCloseBtn = evt.target.closest(".modal__close-btn");
 
   if (isOverlayClick || isCloseBtn) {
     closeModal(modal);
   }
+});
+
+import { enableValidation, validationConfig } from "./validation.js";
+enableValidation(validationConfig);
+
+import { validationConfig, resetValidation } from "./validation.js";
+
+formElement.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  evt.target.reset();
+  resetValidation(formElement, validationConfig);
 });
 
 initialCards.forEach((data) => cardsList.append(getCardElement(data)));
