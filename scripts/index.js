@@ -1,3 +1,9 @@
+import {
+  enableValidation,
+  validationConfig,
+  hideInputError,
+} from "./validation.js";
+
 const initialCards = [
   {
     name: "Val Thorens",
@@ -24,15 +30,6 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
 ];
-
-const validationConfig = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__submit-btn",
-  inactiveButtonClass: "modal__submit-btn_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-};
 
 const profileEditBtn = document.querySelector(".profile__edit-btn");
 const profileNameEl = document.querySelector(".profile__name");
@@ -102,70 +99,6 @@ function getCardElement(data) {
   return cardElement;
 }
 
-const showInputError = (formElement, inputElement, errorMessage, config) => {
-  const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-  inputElement.classList.add(config.inputErrorClass);
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add(config.errorClass);
-};
-
-const hideInputError = (formElement, inputElement, config) => {
-  const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-  if (!errorElement) return;
-
-  inputElement.classList.remove(config.inputErrorClass);
-  errorElement.classList.remove(config.errorClass);
-  errorElement.textContent = "";
-};
-
-const checkInputValidity = (formElement, inputElement, config) => {
-  if (!inputElement.validity.valid) {
-    showInputError(
-      formElement,
-      inputElement,
-      inputElement.validationMessage,
-      config,
-    );
-  } else {
-    hideInputError(formElement, inputElement, config);
-  }
-};
-
-const hasInvalidInput = (inputList) =>
-  inputList.some((input) => !input.validity.valid);
-
-const toggleButtonState = (inputList, buttonElement, config) => {
-  if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add(config.inactiveButtonClass);
-    buttonElement.disabled = true;
-  } else {
-    buttonElement.classList.remove(config.inactiveButtonClass);
-    buttonElement.disabled = false;
-  }
-};
-
-const enableValidation = (config) => {
-  const formList = Array.from(document.querySelectorAll(config.formSelector));
-
-  formList.forEach((formElement) => {
-    const inputList = Array.from(
-      formElement.querySelectorAll(config.inputSelector),
-    );
-    const buttonElement = formElement.querySelector(
-      config.submitButtonSelector,
-    );
-
-    toggleButtonState(inputList, buttonElement, config);
-
-    inputList.forEach((inputElement) => {
-      inputElement.addEventListener("input", () => {
-        checkInputValidity(formElement, inputElement, config);
-        toggleButtonState(inputList, buttonElement, config);
-      });
-    });
-  });
-};
-
 enableValidation(validationConfig);
 
 function handleEditProfileSubmit(evt) {
@@ -219,17 +152,6 @@ document.addEventListener("click", (evt) => {
   if (isOverlayClick || isCloseBtn) {
     closeModal(modal);
   }
-});
-
-import { enableValidation, validationConfig } from "./validation.js";
-enableValidation(validationConfig);
-
-import { validationConfig, resetValidation } from "./validation.js";
-
-formElement.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  evt.target.reset();
-  resetValidation(formElement, validationConfig);
 });
 
 initialCards.forEach((data) => cardsList.append(getCardElement(data)));
