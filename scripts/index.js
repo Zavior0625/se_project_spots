@@ -2,6 +2,7 @@ import {
   enableValidation,
   validationConfig,
   hideInputError,
+  resetValidation,
 } from "./validation.js";
 
 const initialCards = [
@@ -119,7 +120,9 @@ function handleAddCardSubmit(evt) {
   });
 
   cardsList.prepend(cardElement);
+
   evt.target.reset();
+  resetValidation(newPostForm, validationConfig);
 
   closeModal(newPostModal);
 }
