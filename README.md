@@ -38,7 +38,7 @@ Check out these videos, where I describe my project
 and some challenges I faced while building it:
 [Spots Pitch Video](https://drive.google.com/file/d/1HPkC2HmD1YBjRmfworrzfkT-wospn0Ov/view?usp=sharing)
 [Spots Pitch Video JavaScript](https://drive.google.com/file/d/1zyamD6acEN1TOtxSzqgA_vFDxOX6GtAA/view?usp=sharing)
-
+[Spots Pitch Video JavaScript](https://drive.google.com/file/d/1u-oKmT4WBFh0vmuJnJ2WvTq9k2la6vCi/view?usp=sharing)
 ---
 
 ## 👤 Author
