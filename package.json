@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "webpack": "^5.107.2",
+    "webpack-cli": "^7.0.3",
+    "webpack-dev-server": "^5.2.4"
+  },
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack serve --open",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  }
+}
