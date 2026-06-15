@@ -1,3 +1,5 @@
+import "../pages/index.css";
+import "../pages/index.css";
 import {
   enableValidation,
   validationConfig,
@@ -83,7 +85,15 @@ function getCardElement(data) {
   });
 
   likeBtn.addEventListener("click", () => {
-    likeBtn.classList.toggle("card__like-btn_active");
+    const isLiked = likeBtn.classList.contains("card__like-btn_active");
+
+    const request = isLiked ? api.unlikeCard(data._id) : api.likeCard(data._id);
+
+    request
+      .then(() => {
+        likeBtn.classList.toggle("card__like-btn_active");
+      })
+      .catch(console.error);
   });
 
   deleteBtn.addEventListener("click", () => {
