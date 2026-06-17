@@ -6,8 +6,6 @@
     <meta name="author" content="Auzam Awan" />
     <meta name="keywords" content="html" />
     <link rel="stylesheet" href="./pages/index.css" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <title>Spots</title>
   </head>
   <body>
     <div class="page">
@@ -20,6 +18,7 @@
             src="./images/avatar.jpg"
             alt="Bessie Coleman"
             class="profile__avatar"
+            role="button"
           />
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
@@ -125,6 +124,48 @@
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
         </div>
+      </div>
+    </div>
+    <div class="modal" id="edit-avatar-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close-btn"
+          type="button"
+          aria-label="Close modal"
+        ></button>
+
+        <h2 class="modal__title">Change Profile Picture</h2>
+
+        <form class="modal__form" id="edit-avatar-form" novalidate>
+          <label class="modal__label">
+            Avatar URL
+            <input
+              id="avatar-input"
+              type="url"
+              class="modal__input"
+              placeholder="Image URL"
+              required
+            />
+            <span class="modal__error" id="avatar-input-error"></span>
+          </label>
+
+          <button type="submit" class="modal__submit-btn">Save</button>
+        </form>
+      </div>
+    </div>
+    <div class="modal" id="delete-card-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close-btn"
+          type="button"
+          aria-label="Close modal"
+        ></button>
+
+        <h2 class="modal__title">Are you sure?</h2>
+
+        <form class="modal__form" id="delete-card-form">
+          <button type="submit" class="modal__submit-btn">Delete</button>
+        </form>
       </div>
     </div>
     <div class="modal" id="image-preview-modal">

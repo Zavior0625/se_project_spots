@@ -1,5 +1,5 @@
 import "../pages/index.css";
-import "../pages/index.css";
+
 import {
   enableValidation,
   validationConfig,
@@ -40,6 +40,12 @@ const imageModal = document.querySelector("#image-preview-modal");
 const modalImage = imageModal.querySelector(".modal__image");
 const modalCaption = imageModal.querySelector(".modal__caption");
 
+const deleteCardModal = document.querySelector("#delete-card-modal");
+const deleteCardForm = document.querySelector("#delete-card-form");
+
+let selectedCard = null;
+let selectedCardId = null;
+
 const cardTemplate = document.querySelector("#card-template").content;
 
 function openModal(modal) {
@@ -57,12 +63,6 @@ function handleEscClose(evt) {
     const opened = document.querySelector(".modal_is-opened");
     if (opened) closeModal(opened);
   }
-}
-
-function setUserInfo(user) {
-  profileNameEl.textContent = user.name;
-  profileDescriptionEl.textContent = user.about;
-  profileAvatar.src = user.avatar;
 }
 
 function getCardElement(data) {
@@ -97,7 +97,10 @@ function getCardElement(data) {
   });
 
   deleteBtn.addEventListener("click", () => {
-    card.remove();
+    selectedCard = card;
+    selectedCardId = data._id;
+
+    openModal(deleteCardModal);
   });
 
   return card;
@@ -162,17 +165,38 @@ function handleAddCardSubmit(evt) {
     });
 }
 
+function handleDeleteCardSubmit(evt) {
+  evt.preventDefault();
+
+  api
+    .removeCard(selectedCardId)
+    .then(() => {
+      selectedCard.remove();
+
+      closeModal(deleteCardModal);
+
+      selectedCard = null;
+      selectedCardId = null;
+    })
+    .catch(console.error);
+}
+
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 newPostForm.addEventListener("submit", handleAddCardSubmit);
+deleteCardForm.addEventListener("submit", handleDeleteCardSubmit);
 
 profileEditBtn.addEventListener("click", () => {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
 
+  resetValidation(editProfileForm, validationConfig);
+
   openModal(editProfileModal);
 });
 
 newPostBtn.addEventListener("click", () => {
+  resetValidation(newPostForm, validationConfig);
+
   openModal(newPostModal);
 });
 
