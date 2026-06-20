@@ -65,6 +65,12 @@ function handleEscClose(evt) {
   }
 }
 
+function setUserInfo(user) {
+  profileNameEl.textContent = user.name;
+  profileDescriptionEl.textContent = user.about;
+  profileAvatar.src = user.avatar;
+}
+
 function getCardElement(data) {
   const card = cardTemplate.querySelector(".card").cloneNode(true);
 
