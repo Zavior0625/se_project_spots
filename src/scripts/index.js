@@ -22,6 +22,7 @@ const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 const profileAvatar = document.querySelector(".profile__avatar");
 const editAvatarModal = document.querySelector("#edit-avatar-modal");
+const avatarEditButton = document.querySelector(".profile__avatar-overlay");
 
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileForm = editProfileModal.querySelector(".modal__form");
@@ -51,7 +52,7 @@ let currentUserId = null;
 
 const cardTemplate = document.querySelector("#card-template").content;
 
-profileAvatar.addEventListener("click", () => {
+avatarEditButton.addEventListener("click", () => {
   openModal(editAvatarModal);
 });
 
