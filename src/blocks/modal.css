@@ -2,6 +2,7 @@
   visibility: hidden;
   background-color: #00000080;
   position: fixed;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
   top: 0;
   right: 0;
   bottom: 0;
@@ -269,4 +270,15 @@
   .modal__image {
     width: 100%;
   }
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal__submit-btn,
+.modal__cancel-btn {
+  width: 100%;
 }

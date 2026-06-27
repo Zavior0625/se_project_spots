@@ -22,6 +22,8 @@ const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 const profileAvatar = document.querySelector(".profile__avatar");
 const editAvatarModal = document.querySelector("#edit-avatar-modal");
+const editAvatarForm = document.querySelector("#edit-avatar-form");
+const avatarInput = editAvatarModal.querySelector("#avatar-input");
 const avatarEditButton = document.querySelector(".profile__avatar-overlay");
 
 const editProfileModal = document.querySelector("#edit-profile-modal");
@@ -53,6 +55,8 @@ let currentUserId = null;
 const cardTemplate = document.querySelector("#card-template").content;
 
 avatarEditButton.addEventListener("click", () => {
+  editAvatarForm.reset();
+  resetValidation(editAvatarForm, validationConfig);
   openModal(editAvatarModal);
 });
 
@@ -214,9 +218,31 @@ function handleDeleteCardSubmit(evt) {
     });
 }
 
+function handleAvatarSubmit(evt) {
+  evt.preventDefault();
+
+  const submitButton = evt.submitter;
+  submitButton.textContent = "Saving...";
+
+  api
+    .editAvatar({
+      avatar: avatarInput.value,
+    })
+    .then((user) => {
+      setUserInfo(user);
+      closeModal(editAvatarModal);
+      editAvatarForm.reset();
+    })
+    .catch(console.error)
+    .finally(() => {
+      submitButton.textContent = "Save";
+    });
+}
+
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 newPostForm.addEventListener("submit", handleAddCardSubmit);
 deleteCardForm.addEventListener("submit", handleDeleteCardSubmit);
+editAvatarForm.addEventListener("submit", handleAvatarSubmit);
 
 cancelDeleteBtn.addEventListener("click", () => {
   closeModal(deleteCardModal);
